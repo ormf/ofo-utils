@@ -1,4 +1,6 @@
 (ns ofo-utils.samples.piano
+  ^{:doc "piano samples database modified from overtone's original file by the same name."
+    :author "Sam Aaron, Orm Finnendahl"}
   (:use [overtone.core]))
 
 ;;; Same as overtone's original file with the extension of a

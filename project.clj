@@ -1,6 +1,6 @@
 (defproject ofo-utils "0.1.0-SNAPSHOT"
   :description "overtone utilities"
-  :url "http://example.com/FIXME"
+  :url "https://github.com/ormf/ofo-utils"
   :license {:name "The MIT License (MIT)"
             :url "http://opensource.org/licenses/MIT"
             :distribution :repo

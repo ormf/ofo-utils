@@ -1,4 +1,7 @@
 (ns ofo-utils.synth.sampled-piano
+  ^{:doc "A sampled piano modified
+  from overtone's original sampled piano by the same name."
+    :author "Sam Aaron, Orm Finnendahl"}
   (:use [overtone.core]
         [ofo-utils.samples.piano :only [index-buffer rate-buffer]]))
 
