@@ -25,12 +25,39 @@ Utilities for overtone.
     ;; boot the server
     user=> (use 'ofo-utils.core)
 
-    ;; add a VUmeter
+    ;; add a Stereo VUmeter
     user=> (vumeter)
+
+    ;; add another 16 channel VUmeter, listening on supercollider
+    ;; buses 0 through 15
+
+    user=> (vumeter (range 16))
 
     ;; listen to the joys of a simple sine wave and watch its output
     ;; in the vumeter
+    
     user=> (demo (sin-osc))
+
+    ;; load a sampled-piano synth (this is an extended sampled piano
+    ;; from standard overtone, enabling float values for microtonal
+    ;; midi values and an optional duration argument. Beware this
+    ;; takes a long time to load for the first time as the samples
+    ;; have to get downloaded to the sample pool on the local
+    ;; harddrive first.
+
+    user=> (use 'ofo-utils.synth.sampled-piano)
+    
+    ;; play a midi c
+    user=> (sampled-piano 60)
+
+    ;; play a midi c plus one quartertone
+    user=> (sampled-piano 60.5)
+
+    ;; play a staccato note
+    user=> (sampled-piano 60 :dur 0.1)
+
+
+
 
 ```
 
