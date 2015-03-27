@@ -7,4 +7,5 @@
         [overtone.helpers.ns]))
 
 (defn immigrate-ofo-utils-api []
-  (immigrate 'ofo-utils.gui.vumeter))
+  (immigrate 'overtone.live
+             'ofo-utils.gui.vumeter))
