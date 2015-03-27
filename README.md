@@ -12,7 +12,7 @@ Utilities for overtone.
 
     # add the following dependencies to ofo-utils-test/project.clj
     # [org.clojure/clojure "1.6.0"]
-    # [ofo-utils "0.1.0"]
+    # [ofo-utils "0.1.0-SNAPSHOT"]
 
     $ cd ofo-utils-test
     $ lein repl
