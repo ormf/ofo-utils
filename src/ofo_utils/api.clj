@@ -10,4 +10,5 @@
 (defn immigrate-ofo-utils-api []
   (immigrate 'overtone.live
              'ofo-utils.gui.vumeter
-             'ofo-utils.synth.sampled-piano))
+;;             'ofo-utils.synth.sampled-piano
+             ))
