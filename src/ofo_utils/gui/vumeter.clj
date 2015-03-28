@@ -250,112 +250,15 @@
 
 ;;; examples:
 
-;;; create a stereo vumeter listening on buses 0 and 1:
 
 (comment
+;;; create a stereo vumeter listening on buses 0 and 1:
   (vumeter)
-  (vumeter (range 8 16))
-  (vumeter [8 9 8 9 8 9])
-  (vumeter (range 16))
-  (demo (out 0 (pan2 (* 1 (sin-osc)) 0)))
-  (demo (out 2 (* 0.3 (sin-osc))))
-
-  (demo 10 (out 0 (pan2 (* 1 (saw 50)) (- (* 2 (lf-noise0 100)) 1) 1)))
   
-  @vu-states*
-  @vu-bindings*
-  @vumeter-synths*
-  (:frame (first @vu-pool*))
+;;; create a 16-channnel vumeter listening on buses 0 through 15:
+  (vumeter (range 16))
 
-  (.setBackground (.getContentPane (:frame (second (first @vu-pool*))))
-                  (sscol/color 50 50 50))
-  ;; (dosync (ref-set vumeter-synths* {}))
-  ;; (dosync (ref-set vu-pool* {}))
-
-  (set-all-vus! 0)
-  (vu-set! 0 -10)
-
-  (count @vu-states*)
-  (count @vu-bindings*)
-  @vu-pool*
-  @vu-bindings*
-  @vu-states*
-  @vumeter-synths*
-
-
-  (dosync (ref-set vu-states* {}))
-  (stop-all-vus)
-  (vumeter (range 8 10))
-
-  (count @vu-pool*)
-
-  (let [frame (first @vu-pool*)]
-    (map register-vu (:canvases frame) [0 1]))
-
-  (dosync (ref-set vu-pool* {}))
-
-  ;; (dosync (alter vu-pool* conj {:a 1, :b 2}))
-
-  @vu-states*
-
-  (clear-vus!)
-
-  (dosync
-   (dorun (map register-vu (:canvases (first @vu-pool*)) [0 1])))
-
-  (dosync (ref-set vu-pool* {}))
-
-  (defn -main [& args]
-    (invoke-later
-     (->
-      (frame :title "Seesaw (paintable) example"
-             :content (content))
-      pack!
-      show!)))
-  (comment
-    (let [amp 0.7 bus 0.0]
-      (vu-set! (int bus) (+ 10 (amp->db (java.lang.Math/abs amp))))
-      (dorun (map #(.repaint %) (@vu-bindings* (int bus)))))
-
-
-    (@vu-bindings* 0)
-
-    (let [bus 0.0 amp 0.01]
-      (vu-set! (int bus) (+ 10 (amp->db (java.lang.Math/abs amp))))
-      (dorun (map #(.repaint %) (@vu-bindings* (int bus))))))
-  (comment
-    (dosync (ref-set vu-states* {0 () 1 ()}))
-
-    (let [highlighted (get-highlight-vu-positions 0)]
-      
-      (reduce #(assoc %1 (first %2) (second %2))
-              {} (map #(list % highlighted) (keys @vu-states*))))
-    (vu-set! 1 0)
-    @vu-states*
-    (set-all-vus! -20)
-    (clear-vus!)
-
-    (let [bus 0
-          vumeter-canvas (first (:canvases (first @vu-pool*)))]
-      (dosync
-       (do
-         (alter vu-states* assoc bus '())
-         (alter vumeter-synths* assoc bus (vumeter-synth
-                                           [:tail vu-group] bus FPS))
-         (alter vu-bindings* assoc bus (list vumeter-canvas)))))
-    
-    (apply assoc {} '(:a 4 :b 5))
-
-    (apply assoc {} (map list (range 12) (range 12)))
-    (into {} (map list (range 12) (range 12)))
-
-    
-    (set-all-vus! 0)
-    (@vu-bindings* 1)
-    (get-highlight-vu-positions 0))
-  #_(on-event
-     "/vu"
-     (fn [{:keys [args]}]
-       (println args))
-     ::vumeter-evt-handler)
+;;; create a 4 channel VUmeter with supercollider's first two input and
+;;; output channels:
+  (vumeter [8 9 0 1])
   )

@@ -1,6 +1,8 @@
 # ofo-utils
 
-Utilities for overtone.
+Utilities for overtone (VUmeters, sample-players, misc.). Some parts
+of the code contain modified code from overtone. References are
+specified in the sources.
 
 ### Installation
 
@@ -33,8 +35,13 @@ Utilities for overtone.
 
     user=> (vumeter (range 16))
 
+    ;; add a 4 channel VUmeter, listening on supercollider's first two
+    ;; input and output buses
+
+    user=> (vumeter [8 9 0 1])
+
     ;; listen to the joys of a simple sine wave and watch its output
-    ;; in the vumeter
+    ;; in the vumeter(s)
     
     user=> (demo (sin-osc))
 
@@ -90,7 +97,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
     
 
-Copyright © 2015 FIXME
+Copyright © 2015 Orm Finnendahl (and Sam Aaron for the copied parts)
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the MIT License (see LICENSE)
+
+## Contributors
+
+* Orm Finnendahl
+
+
