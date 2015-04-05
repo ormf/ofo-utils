@@ -8,7 +8,7 @@
         [overtone.helpers.ns]))
 
 (defn immigrate-ofo-utils-api []
-  (immigrate 'overtone.live
+  (immigrate 'overtone.core
              'ofo-utils.gui.vumeter
 ;;             'ofo-utils.synth.sampled-piano
              ))
