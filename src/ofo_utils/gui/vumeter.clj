@@ -6,6 +6,9 @@
               [seesaw.graphics :as ssg]
               [seesaw.color :as sscol])
     (:use [overtone.core]
+          [overtone.libs event deps]
+          [overtone.sc defaults server synth ugens buffer node foundation-groups]
+          [overtone.studio core util]
           [overtone.helpers lib]
           [clojure.tools trace])
     (:import [java.awt.event WindowListener ComponentListener]))
