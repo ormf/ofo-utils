@@ -5,10 +5,12 @@
     (:require [seesaw.core :as ssc]
               [seesaw.graphics :as ssg]
               [seesaw.color :as sscol])
-    (:use [overtone.core]
-;          [overtone.sc defaults server synth ugens buffer node foundation-groups]
+    (:use ;[overtone.core :only '(group )] 
+     [overtone.sc defaults server synth ugens buffer node foundation-groups]
+     [overtone.libs event]
+     [overtone.music.pitch :only (amp->db)]
 ;          [overtone.studio core util]
-          [overtone.helpers lib]
+          [overtone.helpers.lib :only (uuid)]
           [clojure.tools trace])
     (:import [java.awt.event WindowListener ComponentListener]))
 
