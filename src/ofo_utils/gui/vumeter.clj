@@ -5,7 +5,7 @@
     (:require [seesaw.core :as ssc]
               [seesaw.graphics :as ssg]
               [seesaw.color :as sscol])
-    (:use [overtone.live]
+    (:use [overtone.core]
           [overtone.helpers lib]
           [clojure.tools trace])
     (:import [java.awt.event WindowListener ComponentListener]))

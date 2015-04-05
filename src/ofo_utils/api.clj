@@ -2,9 +2,9 @@
   (:import [java.lang.management ManagementFactory])
   (:require clojure.stacktrace
             [ofo-utils.gui vumeter]
-            [ofo-utils.synth sampled-piano]
+;            [ofo-utils.synth sampled-piano]
             )
-  (:use [overtone.live]
+  (:use [overtone.core]
         [overtone.helpers.ns]))
 
 (defn immigrate-ofo-utils-api []
