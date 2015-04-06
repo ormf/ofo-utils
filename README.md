@@ -25,6 +25,9 @@ specified in the sources.
 
 ```clj
     ;; boot the server
+    user=> (use 'overtone.live)
+
+    ;; load the utils
     user=> (use 'ofo-utils.core)
 
     ;; add a Stereo VUmeter
