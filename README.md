@@ -23,7 +23,12 @@ specified in the sources.
 ### Making sounds
 
 
-```clj
+```
+    ;; this has to get loaded before overtone
+    ;; to prevent the JVM from crashing when Java
+    ;; swing classes (as in scope or vumeter) are used
+    user=> (use 'seesaw.core)
+
     ;; boot the server
     user=> (use 'overtone.live)
 
